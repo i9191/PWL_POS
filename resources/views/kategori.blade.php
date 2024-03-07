@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Data Kategori Barang</title>
 </head>
@@ -12,11 +12,11 @@
             <th>Nama Kategori</th>
         </tr>
         @foreach ($data as $d)
-        <tr>
-            <td>{{$d->kategori_id}}</td>
-            <td>{{$d->kategori_kode}}</td>
-            <td>{{$d->kategori_nama}}</td>
-        </tr>
+            <tr>
+                <td>{{ $d->kategori_id }}</td>
+                <td>{{ $d->kategori_kode }}</td>
+                <td>{{ $d->kategori_nama }}</td>
+            </tr>
         @endforeach
     </table>
 </body>
