@@ -28,19 +28,20 @@ Route::post('/user/tambah_simpan', [UserController::class, 'tambah_simpan']);
 Route::get('/user/ubah/{id}', [UserController::class, 'ubah']);
 Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
 Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
-Route::prefix('category')->group(function () {
-    Route::get('/food-beverage', 
-        [ProductController::class,'foodProductView']
-    );
-    Route::get('/beauty-health', 
-        [ProductController::class,'beautyhealthProductView']
-    );
-    Route::get('/home-care', 
-        [ProductController::class,'homeProductView']
-    );
-    Route::get('/baby-kid', 
-        [ProductController::class,'babyProductView']
-    );
-});
+Route::get('/kategori', [KategoriController::class, 'index']);
+// Route::prefix('category')->group(function () {
+//     Route::get('/food-beverage', 
+//         [ProductController::class,'foodProductView']
+//     );
+//     Route::get('/beauty-health', 
+//         [ProductController::class,'beautyhealthProductView']
+//     );
+//     Route::get('/home-care', 
+//         [ProductController::class,'homeProductView']
+//     );
+//     Route::get('/baby-kid', 
+//         [ProductController::class,'babyProductView']
+//     );
+// });
 // Route::get('/user/{id}/name/{name}', [UserController::class,'profile']);
 Route::get('/transaction', [TransactionController::class,'transactionView']);
