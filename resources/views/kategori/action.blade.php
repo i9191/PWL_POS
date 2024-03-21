@@ -1,0 +1,1 @@
+<a href="{{ url('kategori/edit/'. $kategori_id) }}" class="btn btn-primary">Edit</a>
