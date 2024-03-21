@@ -35,4 +35,9 @@ class KategoriController extends Controller
         $kat->save();
         return redirect('/kategori');
     }
+    public function delete($id) {
+        $user = KategoriModel::find($id);
+        $user->delete();
+        return redirect('/kategori');
+    }
 }
