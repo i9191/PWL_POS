@@ -116,14 +116,14 @@ class UserController extends Controller
         $request->validate([
             'username'=>'required|string|min:3|unique:m_user,username,'.$id.',user_id',
             'nama'=>'required|string|max:100',
-            'password'=>'required|min:5',
+            'password'=>'nullable|min:5',
             'level_id'=>'required|integer',
         ]);
 
         UserModel::find($id)->update([
             'username' => $request->username,
             'nama' => $request->nama,
-            'password' => bcrypt($request->password),
+            'password' => $request->password ? bcrypt($request->password) : UserModel::find($id)->password,
             'level_id' => $request->level_id,
         ]);
         return redirect('/user')->with('success','Data user berhasil diubah');
