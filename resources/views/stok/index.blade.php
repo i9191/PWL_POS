@@ -113,17 +113,6 @@
                     orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
                     searchable: false // searchable: true, jika ingin kolom ini bisa dicari
                 }],
-                columnDefs: [{
-                    targets: 5,
-                    render: function (data) {
-                        // Format the date using JavaScript Date object
-                        var date = new Date(data);
-                        var year = date.getFullYear();
-                        var month = ('0' + (date.getMonth() + 1)).slice(-2);
-                        var day = ('0' + date.getDate()).slice(-2);
-                        return year + '-' + month + '-' + day;
-                    }
-                }]
             });
             $('#kategori_id').on('change',function () {
                 dataBarang.ajax.reload();

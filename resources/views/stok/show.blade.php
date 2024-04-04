@@ -23,7 +23,7 @@
                     </tr>
                     <tr>
                         <th>Tanggal Stok</th>
-                        <td>{{ date_format(date_create($stok->stok_tanggal),"Y-m-d") }}</td>
+                        <td>{{ $stok->stok_tanggal }}</td>
                     </tr>
                     <tr>
                         <th>User</th>

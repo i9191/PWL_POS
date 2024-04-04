@@ -72,10 +72,11 @@
                         <div class="form-group row">
                             <label class="col-2 control-label col-form-label">Tanggal</label>
                             <div class="col-10">
-                                <div class="input-group">
-                                    <input type="text" class="form-control datepicker pl-3" data-provide="datepicker" id="penjualan_tanggal" name="penjualan_tanggal" value="{{ old('penjualan_tanggal') }}" required>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                <div class="input-group date" id="penjualan_tanggal_input" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#penjualan_tanggal_input" id="penjualan_tanggal" name="penjualan_tanggal"
+                                        value="{{ old('penjualan_tanggal') }}" required/>
+                                    <div class="input-group-append" data-target="#penjualan_tanggal_input" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
                                 @error('penjualan_tanggal')
@@ -124,18 +125,16 @@
     </div>
 @endsection
 @push('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 @endpush
 @push('js')
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('.datepicker').datepicker({
-            format: 'yyyy-mm-dd',
-            autoclose: true,
-            todayHighlight: true
+        $('#penjualan_tanggal_input').datetimepicker({ 
+            icons: { time: 'far fa-clock' },
+            sideBySide: true,
+            allowInputToggle: true,
+            format: 'YYYY-MM-DD HH:mm:ss'
         });
-        $(".datepicker").datepicker("setDate", new Date());
 
         $('#barangTable').DataTable({
             "paging": true,

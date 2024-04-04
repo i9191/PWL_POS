@@ -18,15 +18,6 @@
                 <div class="col-md-12">
                     <div class="form-group row">
                         <label for="" class="col1 control-label col-form-label">Filter:</label>
-                        {{-- <div class="col-3">
-                            <select name="kategori_id" id="kategori_id" class="form-control" required>
-                                <option value="">- Semua -</option>
-                                @foreach ($kategori as $item)
-                                    <option value="{{$item->kategori_id}}">{{$item->kategori_nama}}</option>
-                                @endforeach
-                            </select>
-                            <small class="form-text text-muted">Kategori Barang</small>
-                        </div> --}}
                         <div class="col-3">
                             <select name="level_id" id="level_id" class="form-control" required>
                                 <option value="">- Semua -</option>
@@ -67,7 +58,6 @@
                     "dataType": "json",
                     "type": "POST",
                     "data": function (d) {
-                        // d.kategori_id=$('#kategori_id').val();
                         d.level_id=$('#level_id').val();
                     }
                 },
@@ -107,21 +97,7 @@
                     orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
                     searchable: false // searchable: true, jika ingin kolom ini bisa dicari
                 }],
-                columnDefs: [{
-                    targets: 2,
-                    render: function (data) {
-                        // Format the date using JavaScript Date object
-                        var date = new Date(data);
-                        var year = date.getFullYear();
-                        var month = ('0' + (date.getMonth() + 1)).slice(-2);
-                        var day = ('0' + date.getDate()).slice(-2);
-                        return year + '-' + month + '-' + day;
-                    }
-                }]
             });
-            // $('#kategori_id').on('change',function () {
-            //     dataBarang.ajax.reload();
-            // })
             $('#level_id').on('change',function () {
                 dataBarang.ajax.reload();
             })

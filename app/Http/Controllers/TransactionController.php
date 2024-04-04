@@ -89,7 +89,7 @@ class TransactionController extends Controller
             'user_id' => 'required|integer',
             'penjualan_kode' => 'required|string|min:3|unique:t_penjualan,penjualan_kode',
             'pembeli' => 'required|string|max:100',
-            'penjualan_tanggal' => 'required|date_format:Y-m-d',
+            'penjualan_tanggal' => 'required|date_format:Y-m-d H:i:s',
             // 'alldata'=>'required',
         ]);
 
@@ -142,7 +142,7 @@ class TransactionController extends Controller
             'user_id' => 'required|integer',
             'penjualan_kode' => 'required|string|min:3|unique:t_penjualan,penjualan_kode,'.$id.',penjualan_id',
             'pembeli' => 'required|string|max:100',
-            'penjualan_tanggal' => 'required|date_format:Y-m-d',
+            'penjualan_tanggal' => 'required|date_format:Y-m-d H:i:s',
             // 'alldata'=>'required',
         ]);
 

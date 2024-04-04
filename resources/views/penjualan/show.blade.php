@@ -27,7 +27,7 @@
                     </tr>
                     <tr>
                         <th>Tanggal Transaksi</th>
-                        <td>{{ date_format(date_create($trs->penjualan_tanggal),"Y-m-d") }}</td>
+                        <td>{{$trs->penjualan_tanggal}}</td>
                     </tr>
                     <tr>
                         <th>Detail Item</th>

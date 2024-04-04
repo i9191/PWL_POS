@@ -94,7 +94,7 @@ class StokController extends Controller
         $request->validate([
             'barang_id'=>'required|integer',
             'user_id'=>'required|integer',
-            'stok_tanggal'=>'required|date_format:Y-m-d',
+            'stok_tanggal'=>'required|date_format:Y-m-d H:i:s',
             'stok_jumlah'=>'required|integer'
         ]);
         StokModel::create([
@@ -126,7 +126,7 @@ class StokController extends Controller
         $request->validate([
             'barang_id'=>'required|integer',
             'user_id'=>'required|integer',
-            'stok_tanggal'=>'required|date_format:Y-m-d',
+            'stok_tanggal'=>'required|date_format:Y-m-d H:i:s',
             'stok_jumlah'=>'required|integer'
         ]);
         StokModel::find($id)->update([
