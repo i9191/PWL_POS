@@ -60,13 +60,11 @@
                 <div class="form-group row">
                     <label class="col-1 control-label col-form-label">Tanggal Stok</label>
                     <div class="col-11">
-                        <div class="input-group">
-                            <div class="input-group date" id="stok_tanggal_input" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" data-target="#stok_tanggal_input" id="stok_tanggal" name="stok_tanggal"
-                                    value="{{ old('stok_tanggal') }}" required/>
-                                <div class="input-group-append" data-target="#stok_tanggal_input" data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
+                        <div class="input-group date" id="stok_tanggal_input" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#stok_tanggal_input" id="stok_tanggal" name="stok_tanggal"
+                                value="{{ old('stok_tanggal') }}" required/>
+                            <div class="input-group-append" data-target="#stok_tanggal_input" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
                         </div>
                         @error('stok_tanggal')
@@ -87,10 +85,8 @@
     </div>
 @endsection
 @push('css')
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/> --}}
 @endpush
 @push('js')
-{{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script> --}}
 <script>
     $(document).ready(function(){
         $('#stok_tanggal_input').datetimepicker({ 
