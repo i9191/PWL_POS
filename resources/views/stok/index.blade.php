@@ -113,6 +113,9 @@
                     orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
                     searchable: false // searchable: true, jika ingin kolom ini bisa dicari
                 }],
+                order: [
+                    [5, 'desc'] 
+                ]
             });
             $('#kategori_id').on('change',function () {
                 dataBarang.ajax.reload();

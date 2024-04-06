@@ -97,6 +97,9 @@
                     orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
                     searchable: false // searchable: true, jika ingin kolom ini bisa dicari
                 }],
+                order: [
+                    [2, 'desc'] 
+                ]
             });
             $('#level_id').on('change',function () {
                 dataBarang.ajax.reload();

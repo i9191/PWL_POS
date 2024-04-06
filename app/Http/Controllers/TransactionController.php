@@ -155,19 +155,28 @@ class TransactionController extends Controller
 
         // Assuming allData contains the details of the penjualan items
         $allData = json_decode($request->allData, true);
+
+        $existingDetails = TransactDetailsModel::whereIn('barang_id', array_column($allData, 'barang_id'))
+                                                ->where('penjualan_id', $penjualan->penjualan_id)
+                                                ->get()
+                                                ->keyBy('barang_id');
+
         foreach ($allData as $data) {
             $barangId = $data['barang_id'];
             $quantity = $data['quantity'];
 
-            if ($quantity > 0) {
-                $detailP = TransactDetailsModel::where('penjualan_id', $penjualan->penjualan_id)
-                                                ->where('barang_id', $barangId)
-                                                ->first();
-                if ($detailP) {
+            if (isset($existingDetails[$barangId])) {
+                $detailP = $existingDetails[$barangId];
+
+                if ($quantity > 0) {
                     $detailP->jumlah = $quantity;
                     $detailP->harga = $quantity * $data['harga_jual'];
                     $detailP->save();
                 } else {
+                    $detailP->delete();
+                }
+            } else {
+                if ($quantity > 0) {
                     $newDetailP = new TransactDetailsModel();
                     $newDetailP->penjualan_id = $penjualan->penjualan_id;
                     $newDetailP->barang_id = $barangId;
