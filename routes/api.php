@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\LevelController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\LogoutController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\TransaksiController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -52,3 +53,6 @@ Route::post('/items',[BarangController::class,'store']);
 Route::get('/items/{item}',[BarangController::class,'show']);
 Route::put('/items/{item}',[BarangController::class,'update']);
 Route::delete('/items/{item}',[BarangController::class,'destroy']);
+
+Route::get('/penjualan',[TransaksiController::class,'index']);
+Route::get('/penjualan/{trs}',[TransaksiController::class,'show']);

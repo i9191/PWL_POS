@@ -28,7 +28,8 @@ class BarangController extends Controller
             'barang_nama'=>'required|string|max:100',
             'harga_beli'=>'required|integer|min:5',
             'harga_jual'=>'required|integer|min:5',
-            'kategori_id'=>'required|integer|exists:m_kategori,kategori_id'
+            'kategori_id'=>'required|integer|exists:m_kategori,kategori_id',
+            'gambar'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         if($validator->fails()){
             return response()->json($validator->errors(), 422);
@@ -39,6 +40,7 @@ class BarangController extends Controller
             'harga_beli' => $request->harga_beli,
             'harga_jual' => $request->harga_jual,
             'kategori_id' => $request->kategori_id,
+            'gambar' => $request->gambar->hashName(),
         ]);
         return response()->json($barang,201);
     }
